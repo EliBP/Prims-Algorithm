@@ -113,7 +113,7 @@ function PrimsGraphBuilder({ setEdges, setMST, setVerticeCount }: PrimsGraphBuil
         const pdf = new jsPDF();
 
         // Check if buildLog is not null or empty
-        if (buildLog && buildLog.length > 0) {
+        if (buildLog && buildLog.length > 0 && inputFile) {
             // Set variables
             let yPos = 10;
             const lineHeight = 7;
@@ -132,7 +132,7 @@ function PrimsGraphBuilder({ setEdges, setMST, setVerticeCount }: PrimsGraphBuil
             });
 
             // Save the PDF
-            pdf.save('buildLog.pdf');
+            pdf.save(`${inputFile.name}-buildLog.pdf`);
         } else {
             alert('Build log is empty.');
         }

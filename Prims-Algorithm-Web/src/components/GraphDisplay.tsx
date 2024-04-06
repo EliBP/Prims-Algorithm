@@ -37,7 +37,7 @@ function GraphDisplay({ edges, mst, verticeCount }: GraphDisplayProps) {
             };
 
             // Initialize network
-            const options = {}; // Customize vis.js options here
+            const options = {};
             new Network(networkRef.current, data, options);
         }
     }, [edges, verticeCount]);
