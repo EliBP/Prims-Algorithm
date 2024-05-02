@@ -322,9 +322,15 @@ function FordFulkerson() {
 
             // Loop through each log entry
             buildLog.forEach((logEntry) => {
+                pdf.setFont("helvetica", "normal");
                 if (yPos > pageHeight - 10) {
                     pdf.addPage(); // Add a new page if the current line will be beyond the page height
                     yPos = 10; // Reset Y position for the new page
+                }
+
+                // Bold 'Rescue attempt' log entries
+                if (logEntry == 'Rescue attempt:') {
+                    pdf.setFont("helvetica", "bold");
                 }
 
                 // Add text to PDF, starting at 10mm from the left and 'yPos' mm from the top
