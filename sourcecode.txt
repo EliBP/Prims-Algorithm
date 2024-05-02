@@ -32,7 +32,7 @@ function PrimsGraphBuilder({ setEdges, setMST, setVerticeCount }: PrimsGraphBuil
                 console.log("Number of vertices: " + verticeCount);
 
                 // step 3: build and populate the adjacency matrix
-                const adjacencyMatrix: number[][] = [];
+                let adjacencyMatrix: number[][] = [];
                 let index = 1;
                 for (let row = 0; row < verticeCount; row++) {
                     adjacencyMatrix[row] = inputArray.slice(index, index + verticeCount);
@@ -44,7 +44,7 @@ function PrimsGraphBuilder({ setEdges, setMST, setVerticeCount }: PrimsGraphBuil
                 let tempEdges: number[][] = [];
                 for (let row = 0; row < verticeCount; row++) {
                     for (let column = row + 1; column < verticeCount; column++) {
-                        const weight = adjacencyMatrix[row][column]
+                        let weight = adjacencyMatrix[row][column]
                         if (weight != 0) {
                             tempEdges = [...tempEdges, [weight, row, column]];
                         }
@@ -59,7 +59,7 @@ function PrimsGraphBuilder({ setEdges, setMST, setVerticeCount }: PrimsGraphBuil
             };
             reader.readAsText(inputFile);
         }
-    }, [inputFile, setEdges, setVerticeCount]);
+    }, [inputFile]);
 
     // This function runs Prim's Algorithm
     const runPrimsAlgorithm = (edges: number[][], verticeCount: number): void => {

@@ -4,11 +4,10 @@ import { DataSet, Network } from 'vis-network/standalone';
 
 interface GraphDisplayProps {
     edges: number[][] | null; // each edge is in format of [weight, from, to]
-    mst: number[][] | null;
     verticeCount: number | null; // if there are x vertices then we know there is vertice 0, 1, 2, ... x-1 
 }
 
-function GraphDisplay({ edges, mst, verticeCount }: GraphDisplayProps) {
+function GraphDisplay({ edges, verticeCount }: GraphDisplayProps) {
     const networkRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -49,6 +48,6 @@ function GraphDisplay({ edges, mst, verticeCount }: GraphDisplayProps) {
             <div ref={networkRef} style={{ height: '800px' }} />
         </Card>
     );
-};
+}
 
 export default GraphDisplay;
